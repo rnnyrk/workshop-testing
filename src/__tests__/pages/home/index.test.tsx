@@ -67,6 +67,12 @@ describe('When the users visits the homepage, the usps should be present', () =>
     expect(usps).toBeInTheDocument();
 
     // Check if all the usps are present (could be dynamic)
-    expect(within(usps).getAllByRole('listitem')).toHaveLength(3);
+    const uspItems = within(usps).getAllByRole('listitem');
+    expect(uspItems).toHaveLength(3);
+
+    // Render content in the correct order
+    expect(within(uspItems[0]).getByText('Vault')).toBeInTheDocument();
+    expect(within(uspItems[1]).getByText('Staking')).toBeInTheDocument();
+    expect(within(uspItems[2]).getByText('Wealth')).toBeInTheDocument();
   });
 });
