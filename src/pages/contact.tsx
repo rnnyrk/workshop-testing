@@ -9,7 +9,7 @@ import { Accordion, Navigation } from 'modules';
 
 type FormValues = {
   name: string;
-  company: string;
+  email: string;
   message: string;
 };
 
@@ -17,7 +17,13 @@ const Contact: i.NextPageComponent = () => {
   const [formData, setFormData] = React.useState<FormValues | null>(null);
 
   const onSubmit = (data: FormValues) => {
-    setFormData(data);
+    // Mimic a server request
+    new Promise<void>((resolve) =>
+      setTimeout(() => {
+        setFormData(data);
+        resolve();
+      }, 1000),
+    );
   };
 
   return (
@@ -69,9 +75,9 @@ const Contact: i.NextPageComponent = () => {
               {...register('name', { ...validation.required })}
             />
             <Input
-              label="Company"
-              error={errors.company}
-              {...register('company', { ...validation.required })}
+              label="Email"
+              error={errors.email}
+              {...register('email', { ...validation.required, ...validation.email })}
             />
             <Textarea
               label="Message"
@@ -88,7 +94,7 @@ const Contact: i.NextPageComponent = () => {
       {formData && (
         <ul>
           <li>Name: {formData.name}</li>
-          <li>Company: {formData.company}</li>
+          <li>Email: {formData.email}</li>
           <li>Message: {formData.message}</li>
         </ul>
       )}

@@ -2,7 +2,7 @@ import mockRouter from 'next-router-mock';
 
 import Home from 'pages/index';
 
-import { testRenderer, within } from '../../test-utils';
+import { testRenderer, within } from '../test-utils';
 
 describe('When the users visits the homepage, navigation should be possible', () => {
   test('<Index /> - Should render <Navigation /> with links', () => {

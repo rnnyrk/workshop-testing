@@ -18,6 +18,7 @@ export const FormContainer = <TFormValues extends Record<string, any> = Record<s
     <StyledFormContainer
       id={id}
       onSubmit={methods.handleSubmit((values) => onSubmit(values, methods))}
+      role="form"
     >
       <FormProvider {...methods}>{children(methods)}</FormProvider>
     </StyledFormContainer>
