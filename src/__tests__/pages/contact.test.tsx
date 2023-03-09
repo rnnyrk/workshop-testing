@@ -3,9 +3,30 @@ import Contact from 'pages/contact';
 import { testRenderer, waitFor } from '../test-utils';
 
 describe('When the users visits the contact page, the FAQ should be readable', () => {
-  test('<Contact /> - Should render <Accordion /> with content', () => {
+  test('<Contact /> - Should render <Accordion /> with content', async () => {
     // Render a React element into the DOM
-    const { getByRole } = testRenderer(<Contact />);
+    const { getAllByTestId, getByText, userEvent } = testRenderer(<Contact />);
+
+    // Check if all items are present
+    expect(getByText('FAQ')).toBeInTheDocument();
+    expect(getByText('What is an integration test?')).toBeInTheDocument();
+    expect(getByText('How can this component be tested?')).toBeInTheDocument();
+    expect(getByText("What's the difference between RTL and Jest?")).toBeInTheDocument();
+
+    // Test interactivity of the accordion
+    const accordionTriggers = getAllByTestId('accordion-trigger');
+    expect(accordionTriggers).toHaveLength(3);
+
+    const accordionContent = getAllByTestId('accordion-content');
+    expect(accordionContent).toHaveLength(3);
+
+    // Click on the first accordion item
+    expect(accordionContent[0]).not.toBeVisible();
+    await userEvent.click(accordionTriggers[0]);
+
+    await waitFor(() => {
+      expect(accordionContent[0]).toBeVisible();
+    });
   });
 });
 

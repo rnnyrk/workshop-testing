@@ -38,14 +38,16 @@ export const Accordion = ({ animate, defaultValue, items, type = 'multiple' }: A
         return (
           <AccordionItem value={item.id} key={item.id}>
             <AccordionHeader>
-              <RadixAccordion.Trigger>
+              <RadixAccordion.Trigger data-testid="accordion-trigger">
                 {item.title}
                 <AccordionChevron aria-hidden animate={animate}>
                   <ChevronDownIcon />
                 </AccordionChevron>
               </RadixAccordion.Trigger>
             </AccordionHeader>
-            <AccordionContent animate={animate}>{item.text}</AccordionContent>
+            <AccordionContent animate={animate} data-testid="accordion-content">
+              {item.text}
+            </AccordionContent>
           </AccordionItem>
         );
       })}

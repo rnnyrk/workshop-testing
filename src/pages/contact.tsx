@@ -22,7 +22,7 @@ const Contact: i.NextPageComponent = () => {
       setTimeout(() => {
         setFormData(data);
         resolve();
-      }, 1000),
+      }, 750),
     );
   };
 
@@ -60,7 +60,7 @@ const Contact: i.NextPageComponent = () => {
           },
           {
             id: '569c203c-0ed3-4cff-a50e-a27204ace963',
-            title: 'What is this sample question?',
+            title: "What's the difference between RTL and Jest?",
             text: 'Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.',
           },
         ]}
