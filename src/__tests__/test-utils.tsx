@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RenderOptions, render } from '@testing-library/react';
 import { default as userTestEvents } from '@testing-library/user-event';
@@ -34,7 +35,11 @@ const RootWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions) => {
   const userEvent = userTestEvents.setup();
-  const { rerender, ...result } = render(<RootWrapper>{ui}</RootWrapper>, { ...options });
+
+  const { rerender, ...result } = render(<RootWrapper>{ui}</RootWrapper>, {
+    ...options,
+    wrapper: MemoryRouterProvider,
+  });
 
   return {
     userEvent,

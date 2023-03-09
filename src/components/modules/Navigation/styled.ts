@@ -13,7 +13,7 @@ export const NavigationLogo = styled.div`
   }
 `;
 
-export const NavigationItemsContainer = styled.div`
+export const NavigationItemsContainer = styled.nav`
   display: flex;
   column-gap: 20px;
 `;

@@ -5,15 +5,15 @@ import { NavigationContainer, NavigationLogo, NavigationItemsContainer } from '.
 
 export const Navigation = ({ navigationItems }: NavigationProps) => {
   return (
-    <NavigationContainer>
+    <NavigationContainer role="navigation">
       <NavigationLogo>
-        <Link to="/">
+        <Link to="/" aria-label="Navigate home">
           <Logo />
         </Link>
       </NavigationLogo>
-      <NavigationItemsContainer>
+      <NavigationItemsContainer role="menu">
         {navigationItems.map(({ label, url }, index) => (
-          <Anchor key={`navigationItem-${index}`} to={url} currentTab>
+          <Anchor key={`navigationItem-${index}`} to={url} currentTab role="menuitem">
             {label}
           </Anchor>
         ))}

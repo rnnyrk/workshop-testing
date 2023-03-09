@@ -15,7 +15,9 @@ export const Footer = ({ navigationItems, text }: FooterProps) => {
       <FooterContainer>
         <FooterTextContainer>
           <Logo />
-          <FooterText margin="0">{text}</FooterText>
+          <FooterText margin="0" data-testid="footerText">
+            {text}
+          </FooterText>
         </FooterTextContainer>
         <FooterLinkContainer>
           {navigationItems.map(({ label, url }, index) => (

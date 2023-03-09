@@ -12,14 +12,14 @@ import {
 
 export const Usps = ({ title, subtitle, uspItems }: UspsProps) => {
   return (
-    <UspContainer>
+    <UspContainer role="region">
       <UspsHeader>
         <UspsTitle>{title}</UspsTitle>
         <UspsSubtitle>{subtitle}</UspsSubtitle>
       </UspsHeader>
-      <UspListContainer>
+      <UspListContainer role="list">
         {uspItems.map(({ description, icon, title }, index) => (
-          <UspListUspContainer key={`usp-${index}`}>
+          <UspListUspContainer key={`usp-${index}`} role="listitem">
             <UspsListUspIcon>{icon}</UspsListUspIcon>
             <UspListUspTitle>{title}</UspListUspTitle>
             <UspListUspDescription>{description}</UspListUspDescription>
