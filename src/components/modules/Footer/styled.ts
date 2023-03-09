@@ -37,8 +37,8 @@ export const FooterTextContainer = styled.div`
 `;
 
 export const FooterText = styled(Paragraph)`
-  font-size: 18px;
-  line-height: 35px;
+  font-size: 12px;
+  line-height: 16px;
   color: ${({ theme }) => theme.colors.white};
 `;
 

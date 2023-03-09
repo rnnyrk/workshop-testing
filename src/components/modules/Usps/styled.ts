@@ -3,22 +3,24 @@ import styled from 'styled-components';
 import { media } from 'styles/utils';
 import { Heading, Paragraph } from 'common/typography';
 
+export const UspContainer = styled.div`
+  margin: 80px 0;
+  width: 100%;
+`;
+
 export const UspsHeader = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 export const UspsSubtitle = styled(Paragraph)`
-  font-size: 18px;
+  font-size: 12px;
+  font-style: italic;
   margin: 0;
-
-  ${media.tablet`
-    font-size: 20px;
-  `}
 `;
 
 export const UspsTitle = styled(Heading)`
@@ -28,7 +30,7 @@ export const UspsTitle = styled(Heading)`
 
   ${media.tablet`
     font-size: 40px;
-    line-height: 56px;
+    line-height: 42px;
   `}
 `;
 
@@ -39,12 +41,8 @@ export const UspListContainer = styled.div`
   grid-gap: 24px;
   grid-template-columns: repeat(1, minmax(0, 1fr));
 
-  ${media.tablet`
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  `}
-
   ${media.desktop`
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   `}
 `;
 

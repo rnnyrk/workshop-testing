@@ -39,6 +39,9 @@ const config = (phase, config) => {
     compiler: {
       styledComponents: true,
     },
+    images: {
+      domains: ['cms.labela.nl'],
+    },
   };
 
   /**
@@ -104,65 +107,6 @@ const config = (phase, config) => {
         return config;
       },
     };
-  }
-
-  /**
-   * PRODUCTION BUILD CONFIG
-   * This is the config for production builds in addition to the previous build phase
-   */
-  if (phase === PHASE_PRODUCTION_BUILD) {
-    const withPWA = require('next-pwa');
-
-    // Add service worker to our production build with Workbox
-    const pwaConfig = withPWA({
-      dest: 'public',
-      skipWaiting: true,
-      clientsClaim: true,
-      include: [/\.html$/, /\.js$/, /\.png$/],
-      scope: '/',
-      runtimeCaching: [
-        {
-          urlPattern: /^https?.*/,
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'https-calls',
-            networkTimeoutSeconds: 15,
-            expiration: {
-              maxEntries: 150,
-              maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
-            },
-            cacheableResponse: {
-              statuses: [200],
-            },
-          },
-        },
-      ],
-    });
-
-    cfg = pwaConfig(cfg);
-
-    // Add Bundle Analyzer if requested by script
-    if (process.env.BUNDLE_ANALYZE) {
-      const withBundleAnalyzer = require('@next/bundle-analyzer')({
-        enabled: !!process.env.BUNDLE_ANALYZE,
-      });
-
-      cfg = withBundleAnalyzer({
-        ...cfg,
-        analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-        analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
-        bundleAnalyzerConfig: {
-          server: {
-            analyzerMode: 'static',
-            reportFilename: '../bundle_analytics/server.html',
-          },
-          browser: {
-            analyzerMode: 'static',
-            reportFilename: '../bundle_analytics/client.html',
-          },
-        },
-      });
-    }
   }
 
   return cfg;

@@ -1,6 +1,5 @@
-import { Page } from 'layouts/PrimeLayout';
-
 import {
+  UspContainer,
   UspsHeader,
   UspsSubtitle,
   UspsTitle,
@@ -13,10 +12,10 @@ import {
 
 export const Usps = ({ title, subtitle, uspItems }: UspsProps) => {
   return (
-    <Page.Component>
+    <UspContainer>
       <UspsHeader>
-        <UspsSubtitle>{subtitle}</UspsSubtitle>
         <UspsTitle>{title}</UspsTitle>
+        <UspsSubtitle>{subtitle}</UspsSubtitle>
       </UspsHeader>
       <UspListContainer>
         {uspItems.map(({ description, icon, title }, index) => (
@@ -27,7 +26,7 @@ export const Usps = ({ title, subtitle, uspItems }: UspsProps) => {
           </UspListUspContainer>
         ))}
       </UspListContainer>
-    </Page.Component>
+    </UspContainer>
   );
 };
 
