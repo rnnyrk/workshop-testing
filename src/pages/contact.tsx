@@ -1,6 +1,7 @@
 import * as i from 'types';
 import * as React from 'react';
 
+import { validation } from 'services';
 import { FormContainer, Input, Textarea } from 'common/form';
 import { Button } from 'common/interaction';
 import PrimeLayout from 'layouts/PrimeLayout';
@@ -60,11 +61,23 @@ const Contact: i.NextPageComponent = () => {
       />
 
       <FormContainer<FormValues> onSubmit={onSubmit}>
-        {({ register }) => (
+        {({ register, formState: { errors } }) => (
           <>
-            <Input label="Name" {...register('name')} />
-            <Input label="Company" {...register('company')} />
-            <Textarea label="Message" {...register('message')} />
+            <Input
+              label="Name"
+              error={errors.name}
+              {...register('name', { ...validation.required })}
+            />
+            <Input
+              label="Company"
+              error={errors.company}
+              {...register('company', { ...validation.required })}
+            />
+            <Textarea
+              label="Message"
+              error={errors.message}
+              {...register('message', { ...validation.required })}
+            />
             <Button variant="primary" type="submit">
               Submit
             </Button>
