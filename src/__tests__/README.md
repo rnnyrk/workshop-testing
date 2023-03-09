@@ -10,3 +10,8 @@
 - [Mocking](https://front-end.labela.wiki/docs/docs/Testing/Jest%20RTL/mocking)
 - [User events](https://front-end.labela.wiki/docs/docs/Testing/Jest%20RTL/user-events)
 - [Test cases](https://front-end.labela.wiki/docs/docs/Testing/Jest%20RTL/test-cases)
+
+## Helpful links
+
+- [RTL Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+- [Default ARIA roles](https://www.w3.org/TR/html-aria/#docconformance)
