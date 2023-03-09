@@ -1,24 +1,51 @@
 import * as i from 'types';
 
-import { Anchor } from 'common';
 import PrimeLayout from 'layouts/PrimeLayout';
+import { Accordion, Navigation } from 'modules/contentBlocks';
 
 const Home: i.NextPageComponent = () => {
   return (
-    <p>
-      Created by <Anchor to="https://labela.nl/"> LabelA</Anchor>
-    </p>
+    <>
+      <Navigation
+        navigationItems={[
+          {
+            label: 'Home',
+            url: '/',
+          },
+          {
+            label: 'About',
+            url: '/about',
+          },
+          {
+            label: 'Contact',
+            url: '/contact',
+          },
+        ]}
+      />
+      <Accordion
+        title="FAQ"
+        accordionItems={[
+          {
+            id: '5e41dd50-6831-4e39-b2fd-b02f4b272d30',
+            title: 'What is an integration test?',
+            text: 'Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue.',
+          },
+          {
+            id: 'c4df5aeb-4963-4cca-a23d-682d6212dcd2',
+            title: 'How can this component be tested?',
+            text: 'Donec sed odio dui. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
+          },
+          {
+            id: '569c203c-0ed3-4cff-a50e-a27204ace963',
+            title: 'What is this sample question?',
+            text: 'Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.',
+          },
+        ]}
+      />
+    </>
   );
 };
 
-/**
- * This pattern makes it possible to create layouts which only mount once. Useful for sidebars etc.
- * You should only see a single "Layout mounted!" log in the console.
- * This is a similar pattern to wrapping a layout around routes with react-router
- *
- * The `pageProps` prop contains everything you return from `getServerSideProps` or `getStaticProps`
- * By default, it's typed as `any`. You can change it to a more specific type if you want (e.g. `pageProps: string`)
- */
 Home.layout = (page, pageProps) => {
   return <PrimeLayout>{page}</PrimeLayout>;
 };

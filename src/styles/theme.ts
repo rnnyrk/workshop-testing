@@ -2,8 +2,10 @@ import 'styled-components';
 
 const theme = {
   colors: {
-    prime: '#e7ff00',
-    black: Object.assign('#000000', { test: '#0001' }),
+    prime: '#E7FF00',
+    black: '#000000',
+    blue: '#01003A',
+    white: '#FFFFFF',
   },
 } as const;
 

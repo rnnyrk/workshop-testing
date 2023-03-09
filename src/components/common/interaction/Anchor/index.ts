@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Link } from './Link';
+import { Link } from '../Link';
 
 export const Anchor = styled(Link)`
   color: ${(props) => props.theme.colors.black};

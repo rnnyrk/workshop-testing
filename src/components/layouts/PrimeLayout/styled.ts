@@ -1,39 +1,22 @@
 import styled from 'styled-components';
 
-import { Link } from 'common';
+import { media } from 'styles/utils';
 
-export const PrimeHeader = styled.header`
-  text-align: center;
-  padding: 50px 10px;
-  margin: 0 0 50px;
-  background: ${(props) => props.theme.colors.black};
-
-  & > svg {
-    width: 250px;
-  }
+export const PrimeLayoutContainer = styled.section`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
-export const PrimeContent = styled.section`
-  text-align: center;
-  padding: 0 10px;
-  line-height: 25px;
+export const PrimeLayoutContent = styled.div`
+  max-width: 1200px;
+  width: 100%;
+  padding: 16px 0;
 
-  li {
-    display: inline-block;
-    padding-left: 10px;
-    list-style: none;
-
-    &:not(:last-child) {
-      padding-right: 10px;
-      border-right: 1px solid grey;
-    }
-  }
-`;
-
-export const GithubLink = styled(Link)`
-  display: inline-block;
-
-  & > img {
-    width: 100%;
-  }
+  ${media.tablet`
+    padding: 32px 0;
+  `}
 `;

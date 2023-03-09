@@ -1,6 +1,6 @@
 import * as React from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import _ from 'lodash';
+import capitalize from 'lodash/capitalize';
 
 export const Link: React.FC<LinkProps> = ({
   children,
@@ -12,7 +12,7 @@ export const Link: React.FC<LinkProps> = ({
   disabled,
   ...props
 }) => {
-  const formattedAriaLabel = _.capitalize(ariaLabel);
+  const formattedAriaLabel = capitalize(ariaLabel);
   const isExternalUrl = !to.startsWith('/');
 
   let htmlAnchorProps: React.AnchorHTMLAttributes<HTMLAnchorElement> = {
@@ -76,7 +76,7 @@ export const Link: React.FC<LinkProps> = ({
 type LinkProps = React.AnchorHTMLAttributes<Element> &
   Omit<NextLinkProps, 'href'> & {
     children: React.ReactNode;
-    to: `/${string}` | `http${string}`;
+    to: string;
     className?: string;
     ariaLabel?: string;
     currentTab?: boolean;
