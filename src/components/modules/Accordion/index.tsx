@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { Accordion as AccordionComponent } from 'common/interaction';
 
-import { AccordionHeader, AccordionTitle } from './styled';
+import { AccordionContainer, AccordionHeader, AccordionTitle } from './styled';
 
 export const Accordion = ({ accordionItems, title }: AccordionProps) => {
   return (
-    <>
+    <AccordionContainer>
       <AccordionHeader>
         <AccordionTitle>{title}</AccordionTitle>
       </AccordionHeader>
@@ -17,7 +17,7 @@ export const Accordion = ({ accordionItems, title }: AccordionProps) => {
           title: item.title,
         }))}
       />
-    </>
+    </AccordionContainer>
   );
 };
 

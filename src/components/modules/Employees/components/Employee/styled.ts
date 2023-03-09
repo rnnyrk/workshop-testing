@@ -6,6 +6,15 @@ export const EmployeeContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+
+  &:hover {
+    cursor: pointer;
+
+    img {
+      transform: scale(1.1);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
 `;
 
 export const EmployeeContent = styled.div`
@@ -16,9 +25,8 @@ export const EmployeeContent = styled.div`
   z-index: 20;
   padding: 16px;
   color: white;
-  background: rgba(0, 0, 0, .2);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  cursor: pointer;
 
   h3 {
     margin: 0 0 4px;
@@ -29,8 +37,8 @@ export const EmployeeContent = styled.div`
   }
 
   &:hover {
-    transition: background .2s ease-in-out;
-    background: rgba(0, 0, 0, .4);
+    transition: background 0.2s ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
   }
 `;
 

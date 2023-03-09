@@ -1,9 +1,24 @@
 import * as i from 'types';
+import * as React from 'react';
 
+import { FormContainer, Input, Textarea } from 'common/form';
+import { Button } from 'common/interaction';
 import PrimeLayout from 'layouts/PrimeLayout';
 import { Accordion, Navigation } from 'modules';
 
+type FormValues = {
+  name: string;
+  company: string;
+  message: string;
+};
+
 const Contact: i.NextPageComponent = () => {
+  const [formData, setFormData] = React.useState<FormValues | null>(null);
+
+  const onSubmit = (data: FormValues) => {
+    setFormData(data);
+  };
+
   return (
     <>
       <Navigation
@@ -22,6 +37,7 @@ const Contact: i.NextPageComponent = () => {
           },
         ]}
       />
+
       <Accordion
         title="FAQ"
         accordionItems={[
@@ -42,6 +58,27 @@ const Contact: i.NextPageComponent = () => {
           },
         ]}
       />
+
+      <FormContainer<FormValues> onSubmit={onSubmit}>
+        {({ register }) => (
+          <>
+            <Input label="Name" {...register('name')} />
+            <Input label="Company" {...register('company')} />
+            <Textarea label="Message" {...register('message')} />
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </>
+        )}
+      </FormContainer>
+
+      {formData && (
+        <ul>
+          <li>Name: {formData.name}</li>
+          <li>Company: {formData.company}</li>
+          <li>Message: {formData.message}</li>
+        </ul>
+      )}
     </>
   );
 };

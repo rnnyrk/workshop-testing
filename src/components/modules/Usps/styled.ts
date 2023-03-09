@@ -4,8 +4,8 @@ import { media } from 'styles/utils';
 import { Heading, Paragraph } from 'common/typography';
 
 export const UspContainer = styled.div`
-  margin: 80px 0;
   width: 100%;
+  margin: 40px 0 80px;
 `;
 
 export const UspsHeader = styled.div`

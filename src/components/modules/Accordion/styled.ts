@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import { media } from 'styles/utils';
 import { Heading } from 'common/typography';
 
+export const AccordionContainer = styled.div`
+  width: 100%;
+  margin: 40px 0 80px;
+`;
+
 export const AccordionHeader = styled.div`
   width: 100%;
   display: flex;
