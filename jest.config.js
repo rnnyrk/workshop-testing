@@ -9,12 +9,6 @@ const createJestConfig = nextJest({
 const jestConfig = {
   rootDir: '.',
   preset: 'ts-jest',
-  globals: {
-    __PROD__: false,
-    __ACC__: false,
-    __DEV__: false,
-    __TEST__: true,
-  },
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/jest.setup.js'],
   transform: {

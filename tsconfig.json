@@ -34,6 +34,7 @@
       "services/*": ["src/services/*"],
       "queries/*": ["src/queries/*"],
       "types": ["src/types/index"],
+      "tests/*": ["src/__tests__/*"],
       "vectors/*": ["public/vectors/*"]
     },
     "lib": ["dom", "esnext"],

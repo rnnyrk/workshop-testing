@@ -1,5 +1,17 @@
 import '@testing-library/jest-dom';
 
+import { server } from './mocks/server';
+
+beforeAll(() => {
+  server.listen();
+});
+afterEach(() => {
+  server.resetHandlers();
+});
+afterAll(() => {
+  server.close();
+});
+
 jest.mock('*.svg', () => 'svg');
 
 jest.mock('next/router', () => require('next-router-mock'));

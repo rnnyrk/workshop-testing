@@ -38,7 +38,7 @@ export const Employee = ({ employee }: EmployeeProps) => {
         </Modal.Container>
 
         <Modal.Trigger>
-          <EmployeeContainer>
+          <EmployeeContainer data-testid="employee-item">
             <EmployeeContent>
               <h3>{employee.value.name}</h3>
               <p>{employee.value.function}</p>
