@@ -1,9 +1,13 @@
 import * as i from 'types';
 import { useQuery } from '@tanstack/react-query';
 
+import api from 'services/api';
+
 export const fetchTeam = async (): Promise<i.Team> => {
-  const response = await (await fetch('/api/team', { method: 'GET' })).json();
-  console.log({ response });
+  const response = await api.get({
+    path: '/api/team',
+  });
+
   return response;
 };
 

@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 import * as i from 'types';
 import * as React from 'react';
 import type { AppProps } from 'next/app';

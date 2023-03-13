@@ -10,8 +10,6 @@ export const Employees = () => {
   const { isLoading, data } = useGetTeam();
   const employees = data?.items?.[0]?.employees;
 
-  console.log({ data, isLoading, employees });
-
   return (
     <>
       {isLoading && <Paragraph>Loading</Paragraph>}

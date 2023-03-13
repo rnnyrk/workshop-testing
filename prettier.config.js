@@ -17,10 +17,10 @@ module.exports = {
     '^(react|react-dom)$',
     '^next(.*)$',
     '<THIRD_PARTY_MODULES>',
-    '<BLANK_LINE>',
+    '',
     '^(src|vectors|images|services|hooks|queries|store|styles|config|navigators|screens|static)(/.*|$)',
     '^(pages|layouts|modules|common)(/.*|$)',
-    '<BLANK_LINE>',
+    '',
     '^[./]',
   ],
 };
